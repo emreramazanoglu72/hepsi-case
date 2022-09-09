@@ -1,0 +1,172 @@
+.btn {
+    background-color: $white;
+    border-radius: 4px;
+    color: $gray;
+    border: 1px solid $gray;
+    padding: 12px 16px;
+    box-shadow: none !important;
+    font-family: "Roboto";
+
+    font-size: 18px;
+    line-height: 100%;
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+.btn-success {
+    background-color: $success;
+    border-radius: 4px;
+    color: $white;
+    padding: 12px 16px;
+    box-shadow: none !important;
+    font-family: "Roboto";
+
+    font-weight: 700;
+    font-size: 12px;
+    border: unset;
+    line-height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-danger {
+    background: $danger;
+    border-radius: 4px;
+    color: $white;
+    border: unset;
+    padding: 12px 16px;
+    box-shadow: none !important;
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-outline-success {
+    background: $white;
+    border: 2px solid $success;
+    border-radius: 4px;
+    color: $success;
+    padding: 12px 16px;
+    box-shadow: none !important;
+    font-family: "Roboto";
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-basket {
+    background: #ffeee3;
+    border-radius: 4px;
+    color: #ff8f4c;
+    border: unset;
+    padding: 12px 16px;
+    box-shadow: none !important;
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-disabled {
+    background-color: rgba(128,128,128,28);
+    color: #a9a9a9;
+    border-radius: 4px;
+    padding: 12px 16px;
+    box-shadow: none !important;
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 12px;
+    border: unset;
+    line-height: 100%;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+}
+
+.btn-outline-danger {
+    background: $white;
+    border: 2px solid $danger;
+    border-radius: 4px;
+    color: $danger;
+    padding: 12px 16px;
+    box-shadow: none !important;
+    font-family: "Roboto";
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.badge {
+    width: 18px;
+    height: 18px;
+    font-family: "Roboto";
+
+    font-weight: 500;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: $orange;
+    border-radius: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .active {
+        background: #ffeee3 !important;
+        color: #ff8f4c !important;
+        font-weight: bold !important;
+        border: unset;
+    }
+
+    .item {
+        background: #ffffff;
+        border: 1px solid #eeeeee;
+        border-radius: 9px;
+        font-family: "Roboto";
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #646464;
+        width: 33px;
+        height: 33px;
+        margin: 5px;
+        text-align: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+            background: #ffeee3;
+            color: #ff8f4c;
+            font-weight: bold;
+            border: unset;
+        }
+    }
+}
+
+.empty-basket {
+    width: 88%;
+}

@@ -1,0 +1,74 @@
+.drawer {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    z-index: 99999999;
+    height: 100vh;
+    width: 100vw;
+    transition: 300ms all;
+    justify-content: end;
+    display: flex;
+    overflow-y: scroll;
+    left: 0;
+    top: 0;
+
+    .content {
+        background-color: white;
+        width: 0vw;
+        height: 100vh;
+        -webkit-box-shadow: 5px 5px 15px 5px #cfcfcf;
+        box-shadow: 5px 5px 15px 5px #cfcfcf;
+
+        @include mobile-tablet-only {
+            width: 0;
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            height: 20px;
+            .title {
+                font-family: "Roboto";
+                font-weight: 700;
+                line-height: 2rem;
+                font-size: 28px;
+                color: #484848;
+            }
+
+            svg {
+                font-size: 28px;
+                font-family: "Roboto";
+                fill: gray;
+                cursor: pointer;
+                margin: auto 0;
+                text-align: end;
+                position: absolute;
+                right: 35px;
+            }
+        }
+
+        .body {
+            margin-top: 1rem;
+        }
+    }
+}
+
+.show-drawer {
+    visibility: visible !important;
+    opacity: 1 !important;
+    @include desktop-only {
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    .content {
+        padding: 2rem;
+        width: 40%;
+        height: 100%;
+        max-height: 100%;
+        overflow: auto;
+        @include mobile-tablet-only {
+            width: 60vw;
+            text-align: start;
+        }
+    }
+}
