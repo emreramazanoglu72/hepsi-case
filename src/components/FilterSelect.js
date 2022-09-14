@@ -13,6 +13,17 @@ const FilterSelect = () => {
       changeOrderByTitle(false);
     } else if (value === "(Z>A)") {
       changeOrderByTitle(true);
+    }else{
+      setFilter({
+        ...filter,
+        offset: 1,
+        filterMap: {
+          ...filter.filterMap,
+          brand: "",
+          color: "",
+          orderByPrice: "",
+        },
+      });
     }
   };
 
