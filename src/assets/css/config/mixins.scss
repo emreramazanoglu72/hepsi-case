@@ -1,7 +1,7 @@
 $mq-mobile-portrait: 320px !default;
 $mq-mini-mobile: 375px !default;
 $mq-mobile-landscape: 480px !default;
-$mq-tablet-portrait: 768px !default;
+$mq-tablet-portrait: 769px !default;
 $mq-tablet-landscape: 1024px !default;
 $mq-desktop-landscape: 1350px !default;
 $mq-desktop: 1382px !default;
@@ -13,8 +13,16 @@ $mq-desktop: 1382px !default;
 	}
 }
 
-@mixin desktop-landscape {
+@mixin desktop-max {
 	@media (max-width: $mq-desktop-landscape) {
+		@content;
+	}
+}
+
+
+
+@mixin desktop-min {
+	@media (min-width: $mq-desktop-landscape) {
 		@content;
 	}
 }
@@ -27,6 +35,19 @@ $mq-desktop: 1382px !default;
 
 @mixin mobile-tablet-only {
 	@media (max-width: $mq-tablet-portrait) {
+		@content;
+	}
+}
+
+
+@mixin mobile-tablet-min {
+	@media (min-width: $mq-tablet-portrait) {
+		@content;
+	}
+}
+
+@mixin tablet-desktop-only {
+	@media (min-width: $mq-tablet-portrait) and (max-width: $mq-tablet-landscape) {
 		@content;
 	}
 }

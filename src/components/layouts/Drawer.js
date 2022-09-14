@@ -1,10 +1,8 @@
-import { Button } from "components/Buttons";
 import Filter from "components/Filter";
-import Hr from "components/Hr";
 import React, { useState } from "react";
 import { MdOutlineCancel } from "react-icons/md";
 
-const Draver = ({ title }) => {
+const Draver = ({ title, className }) => {
   const [showDrawer, setShowDrawer] = useState(false);
   const openandcloseDrawer = () => setShowDrawer(!showDrawer);
   return (
@@ -15,15 +13,14 @@ const Draver = ({ title }) => {
             {title && <div className="title">{title}</div>}
             <MdOutlineCancel onClick={openandcloseDrawer} />
           </div>
-          <Hr />
           <div className="body">
             <Filter />
           </div>
         </div>
       </div>
-      <Button className="btn-drawer" onClick={openandcloseDrawer}>
+      <button className={className} onClick={openandcloseDrawer}>
         {title}
-      </Button>
+      </button>
     </React.Fragment>
   );
 };

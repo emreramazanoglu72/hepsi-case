@@ -1,39 +1,48 @@
-import React, { useContext, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { FilterContext } from "context/FilterProvider";
+import { PaginationContext } from "context/PaginationProvider";
+import React, { useContext } from "react";
 import { BsSearch } from "react-icons/bs";
-import { MdOutlineCancel } from "react-icons/md";
-import { AppContext } from "context/AppProvider";
 
-const SearchBox = ({ mobile = false }) => {
-  const { t } = useTranslation();
-  const [input, setInput] = useState("");
-  const { filter, setFilter, resetPage } = useContext(AppContext);
-  const searchAction = (text) => {
-    setInput(text);
+const SearchBox = () => {
+  const { filter, setFilter } = useContext(FilterContext);
+  const { resetPage } = useContext(PaginationContext);
+
+  const searchAction = (input) => {
+    var text = input.target.value;
     if (text.length > 1) {
-      setInput(text);
-      setFilter({ ...filter, search: text });
-    } else {
-      setFilter({ ...filter, search: "" });
-      resetPage();
+      setFilter({
+        ...filter,
+        filterMap: {
+          ...filter.filterMap,
+          title: text,
+        },
+      });
+    } else if (text.length === 0) {
+      setFilter({
+        ...filter,
+        filterMap: {
+          ...filter.filterMap,
+          title: "",
+        },
+      });
     }
+    resetPage();
   };
-  const clearInput = () => {
-    setFilter({ ...filter, search: "" });
-      resetPage();
-      setInput("");
-  };
+
   return (
-    <div className={`${mobile ? "mobile-search-box" : "search-box"}`}>
+    <form
+      className="col-12 col-md-7 mb-2 justify-content-center mb-md-0 search mx-auto"
+      role="search"
+    >
       <BsSearch />
       <input
-        type="text"
-        value={input}
-        placeholder={t("global.search")}
-        onChange={(text) => searchAction(text.target.value)}
+        type="search"
+        className="form-control search-input"
+        placeholder="25 milyon’dan fazla ürün içerisinde ara"
+        aria-label="Search"
+        onChange={searchAction}
       />
-      {filter.search?.length > 1 && <MdOutlineCancel onClick={clearInput} />}
-    </div>
+    </form>
   );
 };
 

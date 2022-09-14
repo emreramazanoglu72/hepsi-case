@@ -11,6 +11,7 @@
     overflow-y: scroll;
     left: 0;
     top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
 
     .content {
         background-color: white;
@@ -26,7 +27,6 @@
         .head {
             display: flex;
             justify-content: space-between;
-            height: 20px;
             .title {
                 font-family: "Roboto";
                 font-weight: 700;
@@ -40,10 +40,6 @@
                 font-family: "Roboto";
                 fill: gray;
                 cursor: pointer;
-                margin: auto 0;
-                text-align: end;
-                position: absolute;
-                right: 35px;
             }
         }
 

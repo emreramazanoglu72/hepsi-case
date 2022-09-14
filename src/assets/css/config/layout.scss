@@ -1,0 +1,160 @@
+@import "../config/mixins.scss";
+
+.position-relative {
+    position: relative !important;
+}
+
+@include desktop-min {
+    .me-md-auto {
+        margin-right: auto !important;
+    }
+}
+
+
+
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.col-auto {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.mx-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+.col-md-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+
+    @include mobile-tablet-only {
+        width: 100%;
+    }
+    
+    @include tablet-desktop-only {
+        width: 50%;
+    }
+}
+
+
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.hide {
+    visibility: hidden;
+    height: 0px;
+    opacity: 0;
+}
+
+.show {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.back-to-top {
+    right: 10px;
+    background-color: rgb(255, 255, 255);
+    background-image: url(https://images.hepsiburada.net/assets/storefront/arrow-up.svg);
+    background-position: 16px 50%;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    bottom: 34px;
+    padding: 8px 16px 8px 36px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 4px 8px 0px;
+    cursor: pointer;
+    line-height: normal;
+    position: fixed;
+}
+
+
+.noResult {
+    width: 100vw;
+  
+    svg {
+      font-size: 4rem;
+    }
+  
+    p {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #919191;
+      margin: 2rem;
+    }
+  }
+  
+  .brandlist {
+    .slick-slide {
+      margin: 0px 15px;
+    }
+  
+    .slick-list {
+      margin: 0px -15px;
+    }
+  
+    .slick-track {
+      display: flex;
+    }
+  
+    @include mobile-tablet-only {
+      display: none;
+      margin: 2rem 0;
+    }
+  
+    margin: 1rem 0;
+    h2 {
+      font-family: "Roboto";
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 2rem;
+      color: #484848;
+    }
+  
+    .item {
+      padding: 2rem 0;
+      outline: none;
+      cursor: pointer;
+      img {
+        border-radius: 6px;
+        overflow: hidden;
+        border: solid 1px #e5e5e5;
+        width: 100%;
+        margin: auto;
+      }
+  
+      p {
+        font-size: 18px;
+        color: #484848;
+        font-weight: 600;
+        margin-top: 10px;
+        text-align: center;
+      }
+    }
+  }
+  
+
+  .disabled {
+    pointer-events:none;
+    opacity:0.6;
+}

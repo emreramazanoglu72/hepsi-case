@@ -1,16 +1,23 @@
+import BasketButton from "components/BasketButton";
+import SearchBox from "components/SearchBox";
 import React from "react";
-import Menu from "./Menu";
 
 const Header = () => {
   return (
-    <React.Fragment>
-      <div className="header">
-        <div className="container">
-          <img src="assets/image/logo.png" alt="" className="logo" />
-          <Menu />
+    <header className="header">
+      <div className="container">
+        <div className="header-content">
+          <a
+            href="#"
+            className="d-flex align-items-center col-auto mb-2 mb-md-0 logo text-decoration-none me-md-auto"
+          >
+            <img src="/assets/image/logo.svg" className="logo" />
+          </a>
+          <SearchBox />
+          <BasketButton />
         </div>
       </div>
-    </React.Fragment>
+    </header>
   );
 };
 

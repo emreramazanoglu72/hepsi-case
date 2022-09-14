@@ -1,55 +1,59 @@
-import React, { useContext, useRef } from "react";
-import { useTranslation } from "react-i18next";
-import { AppContext } from "context/AppProvider";
-import { Button } from "components/Buttons";
+import { BasketContext } from "context/BasketProvider";
+import React, { useContext } from "react";
+import { crosePriceFormat, priceFormat } from "utils";
 
 const ProductCard = ({ detail }) => {
-  const { t } = useTranslation();
-  const { basketList, addBasket } = useContext(AppContext);
-  const { id, title, image, price, color, brand, stock, croseRate } = detail;
-  const ref = useRef();
+  const { basketList, addBasket } = useContext(BasketContext);
+  const { id, title, image, price, color_name, brand_name, stock, crose_rate } = detail;
   const pressButton = () => addBasket(detail);
   let disabledButton = basketList.filter((filter) => filter.id === id);
   disabledButton = disabledButton.length !== 0;
+
+  var totalPrice = crosePriceFormat(price, crose_rate);
+
+  var totalCrosePrice = priceFormat(price);
   return (
-    <div ref={ref} className="productCard">
-      <div className="card-item">
-        <div className="cardImage">
-          <img src={image} alt="" />
+    <div className="item">
+      <div className="card">
+        <div className="head">
+          <img src={image} alt={title} />
         </div>
-        <div className="cardBody">
-          <h4 className="title">
-            {title} - {id}
-          </h4>
-          <p className="type">
-            <b>{t("global.brand")}:</b> {brand}
-          </p>
-          <p className="type">
-            <b>{t("global.color")}:</b> {color}
-          </p>
-          <p className="price">
-            {croseRate === 0 ? price : price / croseRate}₺
-          </p>
-          {croseRate !== 0 && (
-            <div className="crose">
-              <p className="crose-price">{price}</p>
-              {croseRate && <span className="crose-rate">{croseRate}%</span>}
-            </div>
-          )}
-          <Button
+        <p className="title">{title}</p>
+        <div className="body">
+          <div className="features">
+            <p className="desc">
+              <span>Marka:</span> {brand_name}
+            </p>
+            <p className="desc">
+              <span>Renk:</span> {color_name}
+            </p>
+          </div>
+          <div className="price">
+            <p>{totalPrice}₺</p>
+            {crose_rate !== 0 && (
+              <span>
+                <span className="discount-price">{totalCrosePrice} TL </span>
+                <span>{crose_rate}%</span>
+              </span>
+            )}
+          </div>
+          <button
             onClick={pressButton}
-            type={
-              stock === 0 ? "disabled" : disabledButton ? "disabled" : "basket"
+            className={
+              stock === 0
+                ? "added-basket"
+                : disabledButton
+                ? "added-basket"
+                : "add-basket"
             }
-            className="btnn"
             disabled={disabledButton}
           >
             {stock !== 0
               ? disabledButton
-                ? t("global.noAddedBasket")
-                : t("global.addBasket")
-              : t("global.noAddedBasket")}
-          </Button>
+                ? "Bu ürünü sepete eklemeyemezsiniz"
+                : "Sepete Ekle"
+              : "Bu ürünü sepete eklemeyemezsiniz"}
+          </button>
         </div>
       </div>
     </div>
