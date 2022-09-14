@@ -54,7 +54,7 @@ const FilterSelect = () => {
   };
   return (
     <select onChange={filterAction} className="btn dropdown-toggle">
-      <option value>Sıralama</option>
+      <option value="default">Sıralama</option>
       {filterList.sorting.map((item, key) => (
         <option key={key} value={item.value}>
           {item.label}
