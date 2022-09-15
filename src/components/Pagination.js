@@ -27,19 +27,34 @@ const Pagination = () => {
     );
   }
 
-  if (page.pageCount < 1) {
+
+  const nextPage = () => {
+    setPage({
+      ...page,
+      activePage:
+        page.activePage === page.pageCount
+          ? page.pageCount
+          : page.activePage + 1,
+    });
+    setFilter({ ...filter, offset: page.activePage + 1 });
+  };
+
+  const backPage = () => {
+    setPage({
+      ...page,
+      activePage: page.activePage === 1 ? 1 : page.activePage - 1,
+    });
+    setFilter({ ...filter, offset: page.activePage + 1 });
+  };
+
+  if (page.pageCount == 1 || page.pageCount < 1) {
     return null;
   }
-
   return (
     <div className="pagination">
       <button
         onClick={() => {
-          setPage({
-            ...page,
-            activePage: page.activePage === 1 ? 1 : page.activePage - 1,
-          });
-          setFilter({ ...filter, offset: page.activePage + 1 });
+         backPage();
         }}
         className="item"
       >
@@ -47,15 +62,9 @@ const Pagination = () => {
       </button>
       {paginationButton.map((item) => item)}
       <button
+      disabled={page.pageCount == 1}
         onClick={() => {
-          setPage({
-            ...page,
-            activePage:
-              page.activePage === page.pageCount
-                ? page.pageCount
-                : page.activePage + 1,
-          });
-          setFilter({ ...filter, offset: page.activePage + 1 });
+          nextPage();
         }}
         className="item"
       >

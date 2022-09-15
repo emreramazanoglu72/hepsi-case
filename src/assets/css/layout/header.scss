@@ -20,7 +20,6 @@ header {
         padding: 24px 0px;
 
         .logo {
-            
         }
 
         @include mobile-only {
@@ -28,7 +27,6 @@ header {
         }
 
         @include mobile-tablet-only {
-
             .logo {
                 order: 0;
                 width: 150px;
@@ -43,19 +41,17 @@ header {
             .basket {
                 order: 1;
             }
-
         }
 
         .basket {
-
             .btn {
-                transition: all ease .3s;
+                transition: all ease 0.3s;
                 align-items: center;
                 display: flex;
                 justify-content: center;
                 &:after {
                     opacity: 0;
-                    transition: all ease .3s;
+                    transition: all ease 0.3s;
                 }
 
                 &:hover {
@@ -68,7 +64,7 @@ header {
                     }
 
                     &:after {
-                        content: '';
+                        content: "";
                         width: calc(100% + 0.5px);
                         height: 4px;
                         display: block;
@@ -101,19 +97,17 @@ header {
                     width: calc(100vw - 50px);
                 }
 
-
                 ul {
-                    padding: 20px;
-                    height: 360px;
-                    overflow-y: scroll;
-
+                    height: auto;
+                    overflow-y: auto;
+                    padding: 20px 20px 0px 20px;
+                    max-height: 300px;
                     li {
                         display: flex;
                         text-align: left;
                         margin-bottom: 20px;
 
                         .left {
-
                             img {
                                 width: 100%;
                                 max-width: 40px;
@@ -161,8 +155,6 @@ header {
         }
     }
 
-
-
     .search {
         position: relative;
 
@@ -185,8 +177,7 @@ header {
             appearance: none;
             padding-left: 56px;
 
-            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
             &::-webkit-input-placeholder,
             &:-ms-input-placeholder,
@@ -240,9 +231,7 @@ header .search svg {
         }
     }
 
-
     &.dropdown-toggle {
-
         -webkit-appearance: none;
         -moz-appearance: none;
         background: transparent;
@@ -257,8 +246,6 @@ header .search svg {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-
-
 
         option {
             font-size: 14px;
@@ -292,11 +279,7 @@ header {
         top: 0 !important;
         position: absolute !important;
         transform: translate(-50%, -50%) !important;
-
-
     }
-
-   
 }
 
 /*# sourceMappingURL=style.css.map */
